@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pear.commons</groupId>
+    <artifactId>StandardTools</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>pear-spring</module>
+        <module>pear-utils</module>
+        <module>pear-quartz</module>
+        <module>pear-auth</module>
+        <module>pear-selector</module>
+    </modules>
+    <properties>
+        <!-- log jar's version -->
+        <slf4j.version>1.7.6</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+
+        <!-- spring version -->
+        <spring.version>4.3.2.RELEASE</spring.version>
+
+        <fastjson.version>1.2.9</fastjson.version>
+        <quartz-scheduler.version>1.8.6</quartz-scheduler.version>
+
+        <ZKEditionLicense>8.0.1.1</ZKEditionLicense>
+
+        <mybatis.version>3.4.0</mybatis.version>
+    </properties>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Releases</name>
+            <url>http://mvnrepos.dev.17173.com:8081/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://mvnrepos.dev.17173.com:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <dependencyManagement>
+        <dependencies>
+            <!-- log dependency jars -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+
+            <!--quartz -->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${quartz-scheduler.version}</version>
+            </dependency>
+         <!--   <dependency>
+                <groupId>commons-pool</groupId>
+                <artifactId>commons-pool</artifactId>
+                <version>${commons-pool}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>com.jfinal</groupId>
+                <artifactId>jfinal</artifactId>
+                <version>2.2</version>
+            </dependency>
+
+
+
+            <!-- ZKdependency -->
+            <dependency>
+                <groupId>org.zkoss.common</groupId>
+                <artifactId>zcommon</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zul</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zk</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.common</groupId>
+                <artifactId>zweb</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.common</groupId>
+                <artifactId>zel</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zhtml</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zkbind</artifactId>
+                <version>${ZKEditionLicense}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zkex</artifactId>
+                <version>3.6.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.littlehui.zk.addition</groupId>
+                <artifactId>addition-plus</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zkplus</artifactId>
+                <version>${ZKEditionLicense}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>spring-aop</artifactId>
+                        <groupId>org.springframework</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hibernate</artifactId>
+                        <groupId>org.hibernate</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>javassist</artifactId>
+                        <groupId>jboss</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>el-api</artifactId>
+                        <groupId>javax.el</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>acegi-security</artifactId>
+                        <groupId>org.acegisecurity</groupId>
+                    </exclusion>
+                    <!--
+                       -->
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.zkoss.zk</groupId>
+                <artifactId>zk</artifactId>
+                <version>${ZKEditionLicense}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.14.8</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+</project>

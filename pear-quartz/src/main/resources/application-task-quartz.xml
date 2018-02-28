@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath:conf/application-service-datasource.xml"></import>
+ <!--   &lt;!&ndash;Quartz配置&ndash;&gt;
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+        <property name="configLocation" value="classpath:conf/quartz.properties"/>
+        <property name="triggers">
+            <list>
+                <ref bean="commodityOrderTrigger"></ref>
+                <ref bean="matrialCcommodityOrderTrigger"></ref>
+                <ref bean="commodityHotStoreTrigger"></ref>
+                <ref bean="visualSearchAddTrigger"></ref>
+                <ref bean="orderLimitCreateJobTrigger"></ref>
+                <ref bean="visualCommodityNeedPullJobTrigger"></ref>
+                <ref bean="materialOrderAutoConfirmTrigger"></ref>
+                <ref bean="commentAutoGoodTrigger"></ref>
+                <ref bean="visualCommoditySearchAutoCleanTrigger"></ref>
+                <ref bean="supplierCommodityCountAuthRefreshTrigger"></ref>
+                <ref bean="visualCommodityAutoCleanUnpublishTrigger"></ref>
+                <ref bean="smsNoticeJobTrigger"/>
+                <ref bean="activeInstOperateTrigger"/>
+                <ref bean="activeRestrictGloableAutoCleanTrigger"/>
+                <ref bean="visualOrderAutoPrepareResultTrigger"/>
+                <ref bean="materialOrderPreSellAutoCleanTrigger"/>
+                <ref bean="materialSMSNoticeTrigger"/>
+                <ref bean="commonNoticeTrigger"/>
+            </list>
+        </property>
+    </bean>-->
+
+    <bean id="quartzManager" class="com.pear.commons.tools.quartz.manager.QuartzManager">
+        <property name="quartzScheduler" ref="scheduler"></property>
+    </bean>
+</beans>

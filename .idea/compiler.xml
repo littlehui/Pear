@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pear-auth" />
+        <module name="pear-quartz" />
+        <module name="pear-selector" />
+        <module name="pear-spring" />
+        <module name="pear-utils" />
+        <module name="pear_spring" />
+        <module name="pear_utils" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pear-auth" target="1.5" />
+      <module name="pear-quartz" target="1.5" />
+      <module name="pear-selector" target="1.5" />
+      <module name="pear-spring" target="1.5" />
+      <module name="pear-utils" target="1.5" />
+      <module name="pear_spring" target="1.5" />
+      <module name="pear_utils" target="1.5" />
+      <module name="PearStandardTools" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
