@@ -13,25 +13,11 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * 
- * @Description: Class������
- * @Company : cyou
- * @author yangz
- * @date 2012-9-26 ����02:55:57
- * @version V1.0
- */
+
 public class ClassUtil {
 
 	private static final Logger log = Logger.getLogger(ClassUtil.class) ;
-	/**
-	 * �Ƿ���ֵ����
-	 *
-	 * @param clz
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-26 ����03:17:09
-	 */
+
 	public static boolean isValueType(Class<?> clz) {
 		try {
 			if (clz != null) {
@@ -53,14 +39,7 @@ public class ClassUtil {
 		}
 	}
 
-	/**
-	 * ʵ����
-	 *
-	 * @param className
-	 * @return
-	 * @author yangz
-	 * @date 2012-7-29 ����10:55:03
-	 */
+
 	public static Object newInstance(String className) {
 		Object result = null;
 		try {
@@ -73,14 +52,6 @@ public class ClassUtil {
 		return result;
 	}
 
-	/**
-	 * ʵ����
-	 *
-	 * @param c
-	 * @return
-	 * @author yangz
-	 * @date 2012-7-29 ����10:57:08
-	 */
 	@SuppressWarnings("rawtypes")
 	public static Object newInstance(Class c) {
 		Object result = null;
@@ -94,15 +65,7 @@ public class ClassUtil {
 		return result;
 	}
 
-	/**
-	 * ��ȡ�ֶ�, �Ҳ����ֶ����쳣
-	 *
-	 * @param clz
-	 * @param fieldName
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-27 ����04:08:47
-	 */
+
 	@SuppressWarnings("rawtypes")
 	public static Field getField(Class clz, String fieldName) {
 		return getField(clz, fieldName, true);
@@ -112,15 +75,7 @@ public class ClassUtil {
 	 * ����Field
 	 */
 	private final static Map<String,Field> fieldCache =  new ConcurrentHashMap<String,Field>();
-	/**
-	 * ��ȡ�ֶ�, �Ҳ����ֶοɷ���null  exception=falseʱ
-	 *
-	 * @param clz
-	 * @param fieldName
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-27 ����04:08:47
-	 */
+
 	@SuppressWarnings("rawtypes")
 	public static Field getField(Class clz, String fieldName, boolean exception) {
 		String key = clz.getName()+" - " +fieldName;
@@ -147,14 +102,6 @@ public class ClassUtil {
 		return null;
 	}
 
-	/**
-	 * ȡ��������
-	 *
-	 * @param type
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-27 ����04:28:40
-	 */
 	@SuppressWarnings("rawtypes")
 	public static Type[] getActualTypes(Type type) {
 		if (type instanceof ParameterizedType) {
@@ -180,39 +127,19 @@ public class ClassUtil {
 			throw new RuntimeException("type error.");
 		}
 	}
-	/**
-	 * �Ƿ���cglib������
-	 * @param type
-	 * @return
-	 * @author yangz
-	 * @date 2013-1-5 ����02:10:31
-	 */
+
 	@SuppressWarnings("rawtypes")
 	public static boolean isCGLibProxy(Class type){
 		//FIXME ���ַ�������, ���ǱȽ���
     	return type.getName().contains("Enhancer");
     }
 
-	/**
-	 * ȡ��������
-	 *
-	 * @param type
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-27 ����04:28:40
-	 */
+
 	@SuppressWarnings("unchecked")
 	public static <T> Class<T> getActualType(Type type) {
 		return (Class<T>) getActualTypes(type)[0];
 	}
-	/**
-	 * ���Ͷ������Ƿ���ָ������
-	 * @param clz
-	 * @param propertyName
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-29 ����11:21:59
-	 */
+
 	@SuppressWarnings("rawtypes")
 	public static boolean actualTypeHasProperty(Class clz, String propertyName){
 		try {
@@ -226,18 +153,6 @@ public class ClassUtil {
 		return false;
 	}
 
-
-
-
-
-	/**
-	 * �Ƿ���ָ������
-	 * @param clz
-	 * @param propertyName
-	 * @return
-	 * @author yangz
-	 * @date 2012-9-29 ����11:21:59
-	 */
 	@SuppressWarnings("rawtypes")
 	public static boolean hasProperty(Class clz, String propertyName){
 		try {
@@ -264,26 +179,11 @@ public class ClassUtil {
         return false;
     }
 
-	/**
-	 * ��ȡ��������
-	 * @param beanInfo
-	 * @param property
-	 * @return
-	 * @author yangz
-	 * @date 2012-10-11 ����06:32:14
-	 */
 	@SuppressWarnings("rawtypes")
 	public static Class getPropertyType(BeanInfo beanInfo, String property){
 		return getProperty(beanInfo, property).getPropertyType();
 	}
-	/**
-	 * ��ȡ�����ֶ�
-	 * @param beanInfo
-	 * @param property
-	 * @return
-	 * @author yangz
-	 * @date 2012-10-12 ����04:50:08
-	 */
+
 	public static PropertyDescriptor getProperty(BeanInfo beanInfo, String property){
 		PropertyDescriptor[] propertys = beanInfo.getPropertyDescriptors();
 		for (PropertyDescriptor propertyDescriptor : propertys) {
@@ -322,5 +222,4 @@ public class ClassUtil {
 			throw new RuntimeException(e);
 		}
 	}
-	
 }

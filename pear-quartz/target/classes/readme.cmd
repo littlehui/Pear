@@ -1,2 +1,0 @@
-改写quartz.properties与application-task-quartz.xml初始化quartz
-将文件放入系统根目录启动之

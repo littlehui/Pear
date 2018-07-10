@@ -11,7 +11,7 @@ public class ObjectTests {
         sourceObject.setColumn1("tests1");
         sourceObject.setColumn2("test2");
         sourceObject.setColumn3(12312);
-        sourceObject.setColumn4(232323l);
+        sourceObject.setColumn4(232323L);
         DestObject destObject = new DestObject();
         ObjectUtil.copyProperties(sourceObject, destObject);
         System.out.println(destObject);

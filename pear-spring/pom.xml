@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.fz.pear.commons</groupId>
+    <groupId>com.pear.commons</groupId>
     <artifactId>pear-spring</artifactId>
 
     <dependencies>
